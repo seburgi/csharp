@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace LogisticsRestApi.Model;
+namespace Logistics.Hackathon.Model;
 
 public record CargoOffer(
     [property: JsonPropertyName("uid")] int Uid,

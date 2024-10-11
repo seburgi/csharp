@@ -1,16 +1,15 @@
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using LogisticsRestApi.Model;
+using Logistics.Hackathon.Model;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace Tests;
+namespace Logistics.Hackathon.Tests;
 
-public sealed class TruckAgentControllerTests
+public sealed class Tests
 {
     const string FilePath = "Resources/sample_decide_0.json";
 

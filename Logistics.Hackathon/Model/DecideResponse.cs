@@ -1,9 +1,8 @@
 using System.Text.Json.Serialization;
-using Newtonsoft.Json.Converters;
 
-namespace LogisticsRestApi.Model;
+namespace Logistics.Hackathon.Model;
 
-[JsonConverter(typeof(StringEnumConverter))]
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum DecisionResponseType
 {
     DELIVER,
@@ -11,8 +10,9 @@ public enum DecisionResponseType
     ROUTE,
 }
 
+
 public abstract record DecideResponse(
-    DecisionResponseType Command = DecisionResponseType.SLEEP
+    DecisionResponseType Command
 );
 
 public record DeliverResponse(int Argument) : DecideResponse(DecisionResponseType.DELIVER)

@@ -1,0 +1,21 @@
+# run = "dotnet run --project Logistics.Hackathon/Logistics.Hackathon.csproj"
+modules = ["dotnet-7.0"]
+
+[env]
+DOTNET_NOLOGO = "1"
+DOTNET_CLI_TELEMETRY_OPTOUT = "1"
+DOTNET_CLI_HOME = "$XDG_CACHE_HOME"
+
+[nix]
+channel = "stable-24_05"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+run = ["sh", "-c", "dotnet run"]
+
+[[ports]]
+localPort = 8080
+externalPort = 80
+exposeLocalhost = true

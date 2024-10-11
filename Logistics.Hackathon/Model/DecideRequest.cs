@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace LogisticsRestApi.Model;
+namespace Logistics.Hackathon.Model;
 
 public record DecideRequest(
     [property: JsonPropertyName("truck")] TruckState Truck, 

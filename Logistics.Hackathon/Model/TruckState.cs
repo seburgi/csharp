@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace LogisticsRestApi.Model;
+namespace Logistics.Hackathon.Model;
 
 public record TruckState(
     [property: JsonPropertyName("uid")] int Uid,
