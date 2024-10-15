@@ -9,7 +9,13 @@
     <ItemGroup>
         <InternalsVisibleTo Include="Logistics.Hackathon.Tests" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.20" />
-        <PackageReference Include="NSwag.AspNetCore" Version="13.15.10" />
+        <PackageReference Include="NSwag.AspNetCore" Version="13.20.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\map.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
     </ItemGroup>
 
 </Project>

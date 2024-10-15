@@ -4,37 +4,32 @@
     <img alt="WALTER GROUP Hackathon: Sustainable Logistics" src="images/header.svg" width="500px" >
   </a>
 
-<h4 align="center">This is the <b>C#</b> agent template repository for the <br><a href="https://hackathon.walter-group.com" target="_blank">WALTER GROUP Hackathon: Sustainable Logistics</a> which you can use to get started quickly.</h4>
+<h4 align="center">This is the <b>C#</b> agent Replit template for the <br><a href="https://hackathon.walter-group.com" target="_blank">WALTER GROUP Hackathon: Sustainable Logistics</a> which you can use to get started quickly. Click on the green `Fork` button!</h4>
 
   <p align="center">
-    <a href="https://www.walter-group.com"><img src="https://img.shields.io/badge/Organiser-WALTER%20GROUP-%2300529e" alt="Organiser WALTER GROUP"></img></a>
-    <a href="https://join.slack.com/t/waltergroup-hackathon/shared_invite/zt-1jdcaqm4z-cMDXcMYG6eHlJaTR5YH0zw"><img src="https://img.shields.io/badge/Slack-join%20chat-green" alt="Join Slack chat"></img></a>
+    <a href="https://www.walter-group.com"><img src="https://raster.shields.io/badge/Organiser-WALTER%20GROUP-%2300529e.png" alt="Organiser WALTER GROUP"></img></a>
+    <a href="https://join.slack.com/t/wg-hackathon-2024/shared_invite/zt-2ri6ti5h2-tmw7XY4CU7pdlx3jar6d0g"><img src="https://raster.shields.io/badge/Slack-join%20chat-green.png" alt="Join Slack chat"></img></a>
   </p>
 </p>
 
-**For a detailed explanation of how to make a copy of this repository and get it into the competition build system, please visit [Agent template repositories and competition build system](https://github.com/WALTER-GROUP/hackathon-sustainable-logistics#agent-template-repositories-and-competition-build-system). All questions about the simulation and its rules are answered under [Simulation](https://github.com/WALTER-GROUP/hackathon-sustainable-logistics#simulation).**
+**All questions about the simulation and its rules are answered under [Simulation](https://github.com/WALTER-GROUP/hackathon-sustainable-logistics#simulation).**
 
 ## Prerequisites
-- **IDE** - We strongly advise you to use an IDE which will help you to edit, compile and run C# code. Our recommendation is [VS Code](https://code.visualstudio.com/download), which you can download for free.
-- **.NET 6** - You will need the .NET 6 SDK installed on your machine. You can find it on [Microsoft's website](https://www.microsoft.com/net/download/sdk-list).
+- **Replit account** - Create a new Replit account [here](https://replit.com/signup).
 
 ## Where should I add the logic of my truck agent?
-- Open the project in your favorite IDE and browse to [Src/LogisticsRestApi/Controllers/TruckAgentController.cs](Src/LogisticsRestApi/Controllers/TruckAgentController.cs)
-- The method `decide` will always be called by the simulation when the next decision is needed from your truck agent. The argument of this method contains all the information you need to decide for the next move. Just return an instance of [DecideRequest](Src/LogisticsRestApi/Model/DecideRequest.cs) and the simulation will take over again.
+- Open the file [Logistics.Hackathon/Program.cs](Logistics.Hackathon/Program.cs)
+- The line `app.MapPost("/decide", async (DecideRequest request) =>` will always be called by the simulation when the next decision is needed from your truck agent. The argument of this method contains all the information you need to decide for the next move. Just return an instance of [DecideRequest](Logistics.Hackathon/Model/DecideRequest.cs) and the simulation will take over again. You can use [HackathonMap](Logistics.Hackathon/HackathonMap.cs) to get the full map with all the information of the [locations](Logistics.Hackathon/Model/Location.cs) on the map.
 
-## How can I test my truck agent?
-- Open the project in your favorite IDE and browse to [Test/Tests/TruckAgentControllerIntegrationTests.cs](Test/Tests/TruckAgentControllerIntegrationTests.cs)
+## How can I run my truck agent?
+- Just click on the green `> Run` button at the top of the Replit website.
+
+## What about tests?
+- Open the file [Logistics.Hackathon.Tests/Tests.cs](Logistics.Hackathon.Tests/Tests.cs)
 - This is an integration test which will start your agent and will call the `decide` method with the contents of file [Test/Tests/Resources/sample_decide_0.json](Test/Tests/Resources/sample_decide_0.json)
 - You can always change the test and debug your script.
 - Also checkout the other sample requests provided.
-
-## How can I run the truck agent or its tests without an IDE?
-- `dotnet run -p Src/LogisticsRestApi/LogisticsRestApi.csproj ` will start the truck agent, which will then service requests on port 8080.
-- `dotnet test` will execute all the tests in the project.
-
-## Can I build a Docker image and run it locally 
-- `docker build -t logistic-agent .` will build a local Docker image
-- `docker run -p 8080:8080 logistic-agent` will start the truck agent locally in a container and will service requests on port 8080.
+- To run the tests go to the left side panel in Replit, look for the "Shell" entry and click on it. A new shell tab will open and there execute the following command: `dotnet test`
 
 ## Can I get more information about the model properties?
 Sure, check out our [API documentation](https://app.swaggerhub.com/apis-docs/walter-group/walter-group-hackathon-sustainable-logistics/1.0.0) and also thoroughly read our [Simulation documentation](https://github.com/WALTER-GROUP/hackathon-sustainable-logistics#simulation).

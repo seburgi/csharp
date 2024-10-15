@@ -46,4 +46,16 @@ public sealed class Tests
         Assert.AreEqual(DecisionResponseType.DELIVER.ToString(), responseObject.Command.ToString());
         Assert.AreEqual(100, responseObject.Argument);
     }
+
+    [Test]
+    public async Task Can_Load_Map_Locations()
+    {
+        var locations = HackathonMap.Locations;
+        Assert.AreEqual(89, locations.Count);
+
+        Assert.AreEqual("Berlin", locations[0].City);
+        Assert.AreEqual("Germany", locations[0].Country);
+        Assert.AreEqual(52.5167, locations[0].Lat);
+        Assert.AreEqual(13.3833, locations[0].Lng);
+    }
 }

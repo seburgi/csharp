@@ -17,12 +17,21 @@ public abstract record DecideResponse(
 
 public record DeliverResponse(int Argument) : DecideResponse(DecisionResponseType.DELIVER)
 {
+    public override string ToString() {
+        return "DELIVER " + Argument;
+    }
 }
 
 public record SleepResponse(int Argument) : DecideResponse(DecisionResponseType.SLEEP)
 {
+    public override string ToString() {
+        return "SLEEP " + Argument;
+    }
 }
 
 public record RouteResponse(string Argument) : DecideResponse(DecisionResponseType.ROUTE)
 {
+    public override string ToString() {
+        return "ROUTE " + Argument;
+    }
 }
